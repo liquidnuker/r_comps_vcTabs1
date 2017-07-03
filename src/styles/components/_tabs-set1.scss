@@ -15,6 +15,17 @@ h1 {
 // tabs1-01
 // ==================================================/
 // up to 3 tabs
+.tabs1-01 {
+  .tabs {
+    @extend %padd--4;
+    display: inline-block;
+    border: 1px solid #000;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-left: 2px;
+    cursor: pointer;
+  }
+}
 
 .tabs1-01_content {
   @extend %padd--4;

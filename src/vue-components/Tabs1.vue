@@ -3,7 +3,7 @@
     <!-- tabs1-01 -->
     <nav class="tabs1-01">
       <template v-for="i in items">
-        <div v-on:click="loadTabContent(i.tabName)">
+        <div class="tabs" v-on:click="loadTabContent(i.tabName)">
           {{ i.tabName }}
         </div>
       </template>
@@ -38,12 +38,12 @@ export default {
   },
   mounted: function () {
     console.log("Tabs1.vue mounted");
-    // this.loadTabContent();
+    this.loadTabContent("item1");
   },
   methods: {
     loadTabContent: function(item) {
       // console.log(item);
-      // this.tabContent = item;
+      this.tabContent = item;
     }
   }
 }

@@ -77,12 +77,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   mounted: function mounted() {
     console.log("Tabs1.vue mounted");
-    // this.loadTabContent();
+    this.loadTabContent("item1");
   },
   methods: {
     loadTabContent: function loadTabContent(item) {
       // console.log(item);
-      // this.tabContent = item;
+      this.tabContent = item;
     }
   }
 });
@@ -97,6 +97,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "tabs1-01"
   }, [_vm._l((_vm.items), function(i) {
     return [_c('div', {
+      staticClass: "tabs",
       on: {
         "click": function($event) {
           _vm.loadTabContent(i.tabName)
