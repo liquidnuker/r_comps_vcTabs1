@@ -6,22 +6,11 @@
   <div class="row">
     <div class="col-sm-3">39</div>
     <div class="col-sm-9">
-      <!-- tabs1-01 -->
-      <nav class="tabs1-01">
-        <template v-for="i in items">
-          <div v-on:click="loadTabContent(i.tabName)">
-            {{ i.tabName }}
-          </div>
-        </template>
-      </nav>
-      <div class="row col-sm-12 tabs1-01_content">
-        <!-- tabs1-01_content mount -->
-        <div id="tabs1_01_content_mount">
-          {{ tabContent }}
-        </div>
-        <!-- end tabs1-01_content mount -->
+      <!-- begin tabs1 mount -->
+      <div id="tabs_1_mount">
+        loading...
       </div>
-      <!-- end tabs1-01 -->
+      <!-- end tabs1 mount -->
     </div>
   </div>
   <!-- end tabs1-01 placeholder -->
@@ -53,26 +42,23 @@
 export default {
   data () {
     return {
-      items: [
-        {
-          tabName: 'item1'
-        },
-        {
-          tabName: 'item2'
-        },
-        {
-          tabName: 'item3'
-        }
-      ],
-      tabContent: 'item1'
     }
   },
   mounted: function () {
+    this.loadTabs1();
   },
   methods: {
-    loadTabContent: function(item) {
-      console.log(item);
-      this.tabContent = item;
+    loadTabs1: function() {
+      const Tabs1 = resolve => {
+        require.ensure(['Tabs1.vue'], () => {
+          resolve(require('Tabs1.vue'))
+        })
+      };
+      new Vue({
+        el: 'tabs_1_mount',
+        router,
+        render: h => h(Tabs1)
+      })
     }
   }
 }
