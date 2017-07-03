@@ -11,7 +11,6 @@ export default {
     }
   },
   mounted: function () {
-    console.log("Tabs1_item3.vue mounted");
   }
 }
 </script>

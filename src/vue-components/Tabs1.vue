@@ -37,6 +37,7 @@
   </div>
 </template>
 <script>
+import {inject} from "../js/componentinjector.js";
 export default {
   data () {
     return {
@@ -59,7 +60,6 @@ export default {
   },
   methods: {
     loadTabContent: function(item) {
-      console.log(item);
       this.tabContent = item;
 
       switch(item) {
@@ -85,10 +85,7 @@ export default {
           resolve(require('./Tabs1_item1.vue'))
         })
       };
-      new Vue({
-        el: '#tabs1_item1_mount',
-        render: h => h(TabItem1)
-      })
+      inject("#tabs1_item1_mount", TabItem1);
     },
     loadTabItem2: function() {
       const TabItem2 = resolve => {
@@ -96,10 +93,7 @@ export default {
           resolve(require('./Tabs1_item2.vue'))
         })
       };
-      new Vue({
-        el: '#tabs1_item2_mount',
-        render: h => h(TabItem2)
-      })
+      inject("#tabs1_item2_mount", TabItem2);
     },
     loadTabItem3: function() {
       const TabItem3 = resolve => {
@@ -107,10 +101,7 @@ export default {
           resolve(require('./Tabs1_item3.vue'))
         })
       };
-      new Vue({
-        el: '#tabs1_item3_mount',
-        render: h => h(TabItem3)
-      })
+      inject("#tabs1_item3_mount", TabItem3);
     }
   }
 }

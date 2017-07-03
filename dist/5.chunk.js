@@ -51,9 +51,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {};
   },
 
-  mounted: function mounted() {
-    console.log("Tabs1_item2.vue mounted");
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
