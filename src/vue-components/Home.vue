@@ -8,7 +8,7 @@
     <div class="col-sm-9">
       <!-- begin tabs1 mount -->
       <div id="tabs_1_mount">
-        loading...
+        
       </div>
       <!-- end tabs1 mount -->
     </div>
@@ -50,13 +50,12 @@ export default {
   methods: {
     loadTabs1: function() {
       const Tabs1 = resolve => {
-        require.ensure(['Tabs1.vue'], () => {
-          resolve(require('Tabs1.vue'))
+        require.ensure(['./Tabs1.vue'], () => {
+          resolve(require('./Tabs1.vue'))
         })
       };
       new Vue({
-        el: 'tabs_1_mount',
-        router,
+        el: '#tabs_1_mount',
         render: h => h(Tabs1)
       })
     }
