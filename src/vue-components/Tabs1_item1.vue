@@ -1,6 +1,6 @@
 <template>
 <div>
-  tabs1 item2 content
+  tabs1 item1 content
 </div>
 </template>
 <script>
@@ -11,7 +11,7 @@ export default {
     }
   },
   mounted: function () {
-    console.log("Tabs1_item2.vue mounted");
+    console.log("Tabs1_item1.vue mounted");
   }
 }
 </script>

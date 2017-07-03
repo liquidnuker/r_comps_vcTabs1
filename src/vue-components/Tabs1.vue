@@ -10,14 +10,26 @@
     </nav>
     <div class="row col-sm-12 tabs1-01_content">
       <!-- tabs1_item1-->
-      <div v-if="tabContent === 'item1'">
-        {{ tabContent }}
+      <div v-show="tabContent === 'item1'">
+        <!-- item mount -->
+        <div id="tabs1_item1_mount">      
+          loading...    
+        </div>
+        <!-- end item mount -->
       </div>
-      <div v-if="tabContent === 'item2'">
-        {{ tabContent }}
+      <div v-show="tabContent === 'item2'">
+        <!-- item mount -->
+        <div id="tabs1_item2_mount">   
+          loading...       
+        </div>
+        <!-- end item mount -->
       </div>
-      <div v-if="tabContent === 'item3'">
-        {{ tabContent }}
+      <div v-show="tabContent === 'item3'">
+        <!-- item mount -->
+        <div id="tabs1_item3_mount">   
+          loading...       
+        </div>
+        <!-- end item mount -->
       </div>
       <!-- end tabs1_item1 -->
     </div>
@@ -43,13 +55,62 @@ export default {
     }
   },
   mounted: function () {
-    console.log("Tabs1.vue mounted");
     this.loadTabContent("item1");
   },
   methods: {
     loadTabContent: function(item) {
-      // console.log(item);
+      console.log(item);
       this.tabContent = item;
+
+      switch(item) {
+      case "item1":
+        this.loadTabItem1();
+      break;
+      
+      case "item2":
+        this.loadTabItem2();
+      break;
+
+      case "item3":
+        this.loadTabItem3();
+      break;
+      
+      default:
+        this.loadTabItem1();
+      }
+    },
+    loadTabItem1: function() {
+      const TabItem1 = resolve => {
+        require.ensure(['./Tabs1_item1.vue'], () => {
+          resolve(require('./Tabs1_item1.vue'))
+        })
+      };
+      new Vue({
+        el: '#tabs1_item1_mount',
+        render: h => h(TabItem1)
+      })
+    },
+    loadTabItem2: function() {
+      const TabItem2 = resolve => {
+        require.ensure(['./Tabs1_item2.vue'], () => {
+          resolve(require('./Tabs1_item2.vue'))
+        })
+      };
+      new Vue({
+        el: '#tabs1_item2_mount',
+        render: h => h(TabItem2)
+      })
+    },
+    loadTabItem3: function() {
+      const TabItem3 = resolve => {
+        require.ensure(['./Tabs1_item3.vue'], () => {
+          resolve(require('./Tabs1_item3.vue'))
+        })
+      };
+      new Vue({
+        el: '#tabs1_item3_mount',
+        render: h => h(TabItem3)
+      })
     }
   }
 }
