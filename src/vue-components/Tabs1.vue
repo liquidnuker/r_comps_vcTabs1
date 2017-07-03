@@ -9,11 +9,17 @@
       </template>
     </nav>
     <div class="row col-sm-12 tabs1-01_content">
-      <!-- tabs1-01_content mount -->
-      <div id="tabs1_01_content_mount">
+      <!-- tabs1_item1-->
+      <div v-if="tabContent === 'item1'">
         {{ tabContent }}
       </div>
-      <!-- end tabs1-01_content mount -->
+      <div v-if="tabContent === 'item2'">
+        {{ tabContent }}
+      </div>
+      <div v-if="tabContent === 'item3'">
+        {{ tabContent }}
+      </div>
+      <!-- end tabs1_item1 -->
     </div>
     <!-- end tabs1-01 -->
   </div>
