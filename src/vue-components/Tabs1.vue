@@ -3,7 +3,7 @@
     <!-- tabs1-01 -->
     <nav class="tabs1-01">
       <template v-for="i in items">
-        <div class="tabs" v-on:click="loadTabContent(i.tabName)">
+        <div class="tabs" v-bind:class="{active: i.isActive}" v-on:click="loadTabContent(i.tabName)">
           {{ i.tabName }}
         </div>
       </template>
@@ -43,16 +43,19 @@ export default {
     return {
       items: [
         {
-          tabName: 'item1'
+          tabName: 'item1',
+          isActive: false
         },
         {
-          tabName: 'item2'
+          tabName: 'item2',
+          isActive: false
         },
         {
-          tabName: 'item3'
+          tabName: 'item3',
+          isActive: false
         }
       ],
-      tabContent: 'item1'
+      tabContent: 'item1'      
     }
   },
   mounted: function () {
@@ -60,11 +63,12 @@ export default {
   },
   methods: {
     loadTabContent: function(item) {
-      this.tabContent = item;
-
+      this.tabContent = item;     
+      
+      
       switch(item) {
       case "item1":
-        this.loadTabItem1();
+        this.loadTabItem1();        
       break;
       
       case "item2":
