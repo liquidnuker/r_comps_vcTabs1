@@ -77,21 +77,16 @@ export default {
 
       // console.log(indexFinder(item));   
       let activeIndex = indexFinder(item);
-      this.items[activeIndex].isActive = true;
+      this.items[activeIndex].isActive = true;      
       
-      
-      // td: compare activeIndex to activeTab
+      // compare activeIndex to activeTab
       if (this.activeTab !== activeIndex) {
-        console.log("set active");
-        console.log(activeIndex);
         this.items[this.activeTab].isActive = false;
+        
+        // set current activeTab
+        this.activeTab = activeIndex;
       }
-      
-
-
-
-
-      
+            
       switch(item) {
       case "item1":
         this.loadTabItem1();        
