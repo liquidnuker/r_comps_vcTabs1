@@ -55,7 +55,8 @@ export default {
           isActive: false
         }
       ],
-      tabContent: 'item1'      
+      tabContent: 'item1',
+      activeTab: 0      
     }
   },
   mounted: function () {
@@ -63,8 +64,33 @@ export default {
   },
   methods: {
     loadTabContent: function(item) {
-      this.tabContent = item;     
+      this.tabContent = item; 
       
+      let self = this;
+      const indexFinder = function (value) {
+        for (var key = 0; key < self.items.length; key++) {
+          if (self.items[key].tabName == value) {
+            return key;
+          }
+        }
+      };
+
+      // console.log(indexFinder(item));   
+      let activeIndex = indexFinder(item);
+      this.items[activeIndex].isActive = true;
+      
+      
+      // td: compare activeIndex to activeTab
+      if (this.activeTab !== activeIndex) {
+        console.log("set active");
+        console.log(activeIndex);
+        this.items[this.activeTab].isActive = false;
+      }
+      
+
+
+
+
       
       switch(item) {
       case "item1":
