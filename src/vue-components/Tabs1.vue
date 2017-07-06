@@ -63,20 +63,17 @@ export default {
     this.loadTabContent("item1");
   },
   methods: {
+    indexFinder: function(value) {
+      for (var key = 0; key < this.items.length; key++) {
+        if (this.items[key].tabName == value) {
+          return key;
+        }
+      }
+    },
     loadTabContent: function(item) {
       this.tabContent = item; 
       
-      let self = this;
-      const indexFinder = function (value) {
-        for (var key = 0; key < self.items.length; key++) {
-          if (self.items[key].tabName == value) {
-            return key;
-          }
-        }
-      };
-
-      // console.log(indexFinder(item));   
-      let activeIndex = indexFinder(item);
+      let activeIndex = this.indexFinder(item);
       this.items[activeIndex].isActive = true;      
       
       // compare activeIndex to activeTab
