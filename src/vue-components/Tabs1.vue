@@ -43,21 +43,21 @@ export default {
     return {
       items: [
         {
-          tabName: 'item1',
+          tabName: "item1",
           isActive: false
         },
         {
-          tabName: 'item2',
+          tabName: "item2",
           isActive: false
         },
         {
-          tabName: 'item3',
+          tabName: "item3",
           isActive: false
         }
       ],
-      tabContent: 'item1',
+      tabContent: "item1",
       activeTab: 0      
-    }
+    };
   },
   mounted: function () {
     this.loadTabContent("item1");
@@ -70,19 +70,21 @@ export default {
         }
       }
     },
-    loadTabContent: function(item) {
-      this.tabContent = item; 
-      
+    setActiveTab: function(item) {
       let activeIndex = this.indexFinder(item);
       this.items[activeIndex].isActive = true;      
       
-      // compare activeIndex to activeTab
+      // remove activeTab
       if (this.activeTab !== activeIndex) {
         this.items[this.activeTab].isActive = false;
         
         // set current activeTab
         this.activeTab = activeIndex;
       }
+    },
+    loadTabContent: function(item) {
+      this.setActiveTab(item);
+      this.tabContent = item;         
             
       switch(item) {
       case "item1":
@@ -103,28 +105,28 @@ export default {
     },
     loadTabItem1: function() {
       const TabItem1 = resolve => {
-        require.ensure(['./Tabs1_item1.vue'], () => {
-          resolve(require('./Tabs1_item1.vue'))
-        })
+        require.ensure(["./Tabs1_item1.vue"], () => {
+          resolve(require("./Tabs1_item1.vue"));
+        });
       };
       inject("#tabs1_item1_mount", TabItem1);
     },
     loadTabItem2: function() {
       const TabItem2 = resolve => {
-        require.ensure(['./Tabs1_item2.vue'], () => {
-          resolve(require('./Tabs1_item2.vue'))
-        })
+        require.ensure(["./Tabs1_item2.vue"], () => {
+          resolve(require("./Tabs1_item2.vue"));
+        });
       };
       inject("#tabs1_item2_mount", TabItem2);
     },
     loadTabItem3: function() {
       const TabItem3 = resolve => {
-        require.ensure(['./Tabs1_item3.vue'], () => {
-          resolve(require('./Tabs1_item3.vue'))
-        })
+        require.ensure(["./Tabs1_item3.vue"], () => {
+          resolve(require("./Tabs1_item3.vue"));
+        });
       };
       inject("#tabs1_item3_mount", TabItem3);
     }
   }
-}
+};
 </script>
