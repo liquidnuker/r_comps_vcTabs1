@@ -65,14 +65,20 @@ export default {
   methods: {
     setActiveTab: function(index) {
       let activeIndex = index;
-      this.items[activeIndex].isActive = true;      
+
+      // "this" removers
+      let items = this.items; 
+      let activeTab = this.activeTab;
+
+      items[activeIndex].isActive = true;      
       
       // remove activeTab
-      if (this.activeTab !== activeIndex) {
-        this.items[this.activeTab].isActive = false;
+      if (activeTab !== activeIndex) {
+        items[activeTab].isActive = false;
         
         // set current activeTab
         this.activeTab = activeIndex;
+
       }
     },
     loadTabContent: function(item, index) {
