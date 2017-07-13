@@ -2,8 +2,8 @@
   <div>
     <!-- tabs1-01 -->
     <nav class="tabs1-01">
-      <template v-for="i in items">
-        <div class="tabs" v-bind:class="{active: i.isActive}" v-on:click="loadTabContent(i.tabName)">
+      <template v-for="(i, index) in items">
+        <div class="tabs" v-bind:class="{active: i.isActive}" v-on:click="loadTabContent(i.tabName, index)">
           {{ i.tabName }}
         </div>
       </template>
@@ -60,18 +60,11 @@ export default {
     };
   },
   mounted: function () {
-    this.loadTabContent("item1");
+    this.loadTabContent("item1", 0);
   },
   methods: {
-    indexFinder: function(value) {
-      for (var key = 0; key < this.items.length; key++) {
-        if (this.items[key].tabName == value) {
-          return key;
-        }
-      }
-    },
-    setActiveTab: function(item) {
-      let activeIndex = this.indexFinder(item);
+    setActiveTab: function(index) {
+      let activeIndex = index;
       this.items[activeIndex].isActive = true;      
       
       // remove activeTab
@@ -82,8 +75,8 @@ export default {
         this.activeTab = activeIndex;
       }
     },
-    loadTabContent: function(item) {
-      this.setActiveTab(item);
+    loadTabContent: function(item, index) {
+      this.setActiveTab(index);
       this.tabContent = item;         
             
       switch(item) {
