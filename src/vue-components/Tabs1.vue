@@ -3,41 +3,27 @@
     <!-- tabs1-01 -->
     <nav class="tabs1-01" role="tablist">
       <template v-for="(i, index) in items">
-        <div class="tabs" v-bind:class="{active: i.isActive}" v-on:click="loadTabContent(i.tabName, index)">
+        <div class="tabs" role="tab" :aria-selected="i.isActive" :aria-setsize="items.length" 
+        :aria-posinset="index + 1" tabindex="0" 
+        :class="{active: i.isActive}" 
+        @click="loadTabContent(i.tabName, index)">
           {{ i.tabName }}
         </div>
       </template>
     </nav>
-    <div class="row col-sm-12 tabs1-01_content">
-      <!-- tabs1_item1-->
-      <div v-show="tabContent === 'item1'">
-        <!-- item mount -->
-        <div id="tabs1_item1_mount">      
-          loading...    
-        </div>
-        <!-- end item mount -->
-      </div>
-      <div v-show="tabContent === 'item2'">
-        <!-- item mount -->
-        <div id="tabs1_item2_mount">   
-          loading...       
-        </div>
-        <!-- end item mount -->
-      </div>
-      <div v-show="tabContent === 'item3'">
-        <!-- item mount -->
-        <div id="tabs1_item3_mount">   
-          loading...       
-        </div>
-        <!-- end item mount -->
-      </div>
-      <!-- end tabs1_item1 -->
+    <div class="row col-sm-12 tabs1-01_panels">
+      <keep-alive>
+        <component :is="currentTab" />
+      </keep-alive>
     </div>
     <!-- end tabs1-01 -->
   </div>
 </template>
 <script>
-import {inject} from "../js/componentinjector.js";
+const tabItem1 = () => import('./Tabs1_item1.vue');
+const tabItem2 = () => import('./Tabs1_item2.vue');
+const tabItem3 = () => import('./Tabs1_item3.vue');
+
 export default {
   data () {
     return {
@@ -55,8 +41,8 @@ export default {
           isActive: false
         }
       ],
-      tabContent: "item1",
-      activeTab: 0      
+      activeTab: 0,
+      currentTab: tabItem1      
     };
   },
   mounted: function () {
@@ -78,53 +64,27 @@ export default {
         
         // set current activeTab
         this.activeTab = activeIndex;
-
       }
     },
     loadTabContent: function(item, index) {
       this.setActiveTab(index);
-      this.tabContent = item;         
-            
+                  
       switch(item) {
       case "item1":
-        this.loadTabItem1();        
+        this.currentTab = tabItem1;   
       break;
       
       case "item2":
-        this.loadTabItem2();
+        this.currentTab = tabItem2;  
       break;
 
       case "item3":
-        this.loadTabItem3();
+        this.currentTab = tabItem3;  
       break;
       
       default:
-        this.loadTabItem1();
+        this.currentTab = tabItem1;  
       }
-    },
-    loadTabItem1: function() {
-      const TabItem1 = resolve => {
-        require.ensure(["./Tabs1_item1.vue"], () => {
-          resolve(require("./Tabs1_item1.vue"));
-        });
-      };
-      inject("#tabs1_item1_mount", TabItem1);
-    },
-    loadTabItem2: function() {
-      const TabItem2 = resolve => {
-        require.ensure(["./Tabs1_item2.vue"], () => {
-          resolve(require("./Tabs1_item2.vue"));
-        });
-      };
-      inject("#tabs1_item2_mount", TabItem2);
-    },
-    loadTabItem3: function() {
-      const TabItem3 = resolve => {
-        require.ensure(["./Tabs1_item3.vue"], () => {
-          resolve(require("./Tabs1_item3.vue"));
-        });
-      };
-      inject("#tabs1_item3_mount", TabItem3);
     }
   }
 };

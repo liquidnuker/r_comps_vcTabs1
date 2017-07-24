@@ -1,5 +1,5 @@
 <template>
-<div>
+<div role="tabpanel">
   tabs1 item2 content
 </div>
 </template>
