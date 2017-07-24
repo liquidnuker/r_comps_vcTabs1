@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- tabs1-01 -->
-    <nav class="tabs1-01">
+    <nav class="tabs1-01" role="tablist">
       <template v-for="(i, index) in items">
         <div class="tabs" v-bind:class="{active: i.isActive}" v-on:click="loadTabContent(i.tabName, index)">
           {{ i.tabName }}
