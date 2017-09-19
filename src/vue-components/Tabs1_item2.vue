@@ -1,5 +1,5 @@
 <template>
-<div role="tabpanel">
+<div role="tabpanel" class="vueTabs1-01_tabcontent">
   tabs1 item2 content
 </div>
 </template>

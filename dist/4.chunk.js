@@ -106,7 +106,7 @@ var tabItem3 = function tabItem3() {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('nav', {
-    staticClass: "tabs1-01",
+    staticClass: "vueTabs1-01",
     attrs: {
       "role": "tablist"
     }
@@ -130,7 +130,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_vm._v("\n        " + _vm._s(i.tabName) + "\n      ")])]
   })], 2), _vm._v(" "), _c('div', {
-    staticClass: "row col-sm-12 tabs1-01_panels"
+    staticClass: "row col-sm-12 vueTabs1-01_panels"
   }, [_c('keep-alive', [_c(_vm.currentTab, {
     tag: "component"
   })], 1)], 1)])

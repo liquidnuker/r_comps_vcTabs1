@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- tabs1-01 -->
-    <nav class="tabs1-01" role="tablist">
+    <!-- vueTabs1-01 -->
+    <nav class="vueTabs1-01" role="tablist">
       <template v-for="(i, index) in items">
         <div class="tabs" role="tab" :aria-selected="i.isActive" :aria-setsize="items.length" 
         :aria-posinset="index + 1" tabindex="0" 
@@ -11,12 +11,12 @@
         </div>
       </template>
     </nav>
-    <div class="row col-sm-12 tabs1-01_panels">
+    <div class="row col-sm-12 vueTabs1-01_panels">
       <keep-alive>
         <component :is="currentTab" />
       </keep-alive>
     </div>
-    <!-- end tabs1-01 -->
+    <!-- end vueTabs1-01 -->
   </div>
 </template>
 <script>
