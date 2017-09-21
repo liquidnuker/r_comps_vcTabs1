@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- vueTabs1-01 -->
-    <nav class="vueTabs1-01" role="tablist">
+    <!-- vueTabs101 -->
+    <nav class="vueTabs101" role="tablist">
       <template v-for="(i, index) in items">
         <div class="tabs" role="tab" :aria-selected="i.isActive" :aria-setsize="items.length" 
         :aria-posinset="index + 1" tabindex="0" 
@@ -11,12 +11,13 @@
         </div>
       </template>
     </nav>
-    <div class="row col-sm-12 vueTabs1-01_panels">
+    <div class="row col-sm-12 vueTabs101_panels"
+    aria-live="assertive" aria-atomic="true">
       <keep-alive>
         <component :is="currentTab" />
       </keep-alive>
     </div>
-    <!-- end vueTabs1-01 -->
+    <!-- end vueTabs101 -->
   </div>
 </template>
 <script>
@@ -50,11 +51,9 @@ export default {
   },
   methods: {
     setActiveTab: function(index) {
-      let activeIndex = index;
-
-      // "this" removers
       let items = this.items; 
       let activeTab = this.activeTab;
+      let activeIndex = index;
 
       items[activeIndex].isActive = true;      
       

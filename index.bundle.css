@@ -6,7 +6,7 @@
   .row:after {
     clear: both; }
 
-.vueTabs1-01 .tabs {
+.vueTabs101 .tabs {
   display: inline-block; }
 
 input, textarea, select, html, body, div, span, applet, object, iframe,
@@ -25,7 +25,7 @@ time, mark, audio, video {
   margin: 0;
   padding: 0; }
 
-.vueTabs1-01 .tabs, .vueTabs1-01_panels, .vueTabs1-01_tabcontent {
+.vueTabs101 .tabs, .vueTabs101_panels, .vueTabs101_tabcontent {
   padding: 4px; }
 
 *,
@@ -778,39 +778,39 @@ body {
   .col-lg-1 {
     width: 8.33333333%; } }
 
-.vueTabs1-01 {
+.vueTabs101 {
   background-color: #141416; }
-  .vueTabs1-01 .tabs {
+  .vueTabs101 .tabs {
     background-color: #ccc;
     border: 1px solid #000;
     margin-top: 2px; }
-  .vueTabs1-01 .active {
+  .vueTabs101 .active {
     background-color: #f6f6f6;
     border-top: 1px solid #be0101; }
 
-.vueTabs1-01_panels {
+.vueTabs101_panels {
   background-color: #2c2d32; }
 
-.vueTabs1-01_tabcontent {
+.vueTabs101_tabcontent {
   background-color: #343437;
   border-top: 1px dashed #5c5d60;
   color: #d5d5d5; }
 
-.vueTabs1-01 .tabs {
+.vueTabs101 .tabs {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   margin-left: 2px;
   cursor: pointer; }
 
-.vueTabs1-01_panels {
+.vueTabs101_panels {
   margin-top: -1px; }
 
 @media (min-width: 20em) {
-  .vueTabs1-01 > input[type="radio"] + label {
+  .vueTabs101 > input[type="radio"] + label {
     width: 28%; } }
 
 @media (min-width: 30em) {
-  .vueTabs1-01 > input[type="radio"] + label {
+  .vueTabs101 > input[type="radio"] + label {
     width: auto; } }
 
 h1 {

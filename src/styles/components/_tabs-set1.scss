@@ -1,7 +1,7 @@
-// vueTabs1-01
+// vueTabs101
 // ==================================================/
-@mixin vueTabs1-01_theme() {
-  .vueTabs1-01 {
+@mixin vueTabs101_theme() {
+  .vueTabs101 {
     background-color: #141416;
 
     .tabs {
@@ -16,19 +16,19 @@
     }
   }
 
-  .vueTabs1-01_panels {
+  .vueTabs101_panels {
     background-color: #2c2d32;
   }
 
-  .vueTabs1-01_tabcontent {
+  .vueTabs101_tabcontent {
     background-color: #343437;
     border-top: 1px dashed #5c5d60;
     color: #d5d5d5;
   }
 }
-@include vueTabs1-01_theme();
+@include vueTabs101_theme();
 
-.vueTabs1-01 {
+.vueTabs101 {
   .tabs {
     @extend %padd--4;
     @extend %display--inline-block;
@@ -43,19 +43,19 @@
   }
 }
 
-.vueTabs1-01_panels {
+.vueTabs101_panels {
   @extend %padd--4;
   margin-top: -1px;
 }
 
-.vueTabs1-01_tabcontent {
+.vueTabs101_tabcontent {
   @extend %padd--4;    
 }
 
 //  media queries
 // mobile portrait (320x480) 
 @include mq($from: mobile) {
-  .vueTabs1-01 {
+  .vueTabs101 {
     > input[type="radio"] + label {
       width: 28%;
       
@@ -65,7 +65,7 @@
 
 // *mobile landscape (480x320)
 @include mq($from: mobileLandscape) {
-  .vueTabs1-01 {
+  .vueTabs101 {
     > input[type="radio"] + label {
       width: auto;      
     }

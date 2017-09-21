@@ -25,6 +25,7 @@ webpackJsonp([4],{
 //
 //
 //
+//
 
 var tabItem1 = function tabItem1() {
   return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, 11));
@@ -59,11 +60,9 @@ var tabItem3 = function tabItem3() {
   },
   methods: {
     setActiveTab: function setActiveTab(index) {
-      var activeIndex = index;
-
-      // "this" removers
       var items = this.items;
       var activeTab = this.activeTab;
+      var activeIndex = index;
 
       items[activeIndex].isActive = true;
 
@@ -106,7 +105,7 @@ var tabItem3 = function tabItem3() {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('nav', {
-    staticClass: "vueTabs1-01",
+    staticClass: "vueTabs101",
     attrs: {
       "role": "tablist"
     }
@@ -130,7 +129,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_vm._v("\n        " + _vm._s(i.tabName) + "\n      ")])]
   })], 2), _vm._v(" "), _c('div', {
-    staticClass: "row col-sm-12 vueTabs1-01_panels"
+    staticClass: "row col-sm-12 vueTabs101_panels",
+    attrs: {
+      "aria-live": "assertive",
+      "aria-atomic": "true"
+    }
   }, [_c('keep-alive', [_c(_vm.currentTab, {
     tag: "component"
   })], 1)], 1)])
